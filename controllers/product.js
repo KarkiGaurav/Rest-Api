@@ -42,7 +42,7 @@ const getAllProduct = async (req, res) => {
     apidata = apidata.skip(skip).limit(limit);
 
   
-    res.status(200).json(apidata);
+    res.status(200).json({apidata});
     // console.log(myData);
 };
 
