@@ -4,7 +4,10 @@ const getAllProduct = async (req, res) => {
 
     const {company, name, featured, sort, select} = req.query;
     const querryObject = {};
-
+     
+    if(id){
+        querryObject.id = { $regex: id, $options: "i"};
+    }
     if(company){
         querryObject.company = company;
 
