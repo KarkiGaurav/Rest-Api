@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
+import { Prisma, Role } from '@prisma/client';
 import { DatabaseService } from 'src/database/database.service';
 // import { CreateEmployeeDto } from './dto/create-employee.dto';
 // import { UpdateEmployeeDto } from './dto/update-employee.dto';
@@ -13,7 +13,7 @@ export class EmployeesService {
     return this.databseService.employee.create({data:createEmployeeDto })
   }
 
-  async findAll(role?: 'INTERN' | 'ENGINEER') {
+  async findAll(role?: Role) {
    if(role) return this.databseService.employee.findMany({
       where: {
         role,
